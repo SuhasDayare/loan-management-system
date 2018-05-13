@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <h3>A responsible lender<br>
-                    <small>At Norton Finance we are committed to treating our customers fairly and providing a friendly, flexible and professional service. We’ll keep the formalities to a minimum and work with you to ensure a speedy response to your loan application.</small>
+                    <small>At Norton Finance we are committed to treating our customers fairly and providing a friendly, flexible and professional service. We’ll keep the formalities to a minimum and work with you to ensure a speedy response to your loan application. Thank you.</small>
                 </h3>
             </div>
         </div>
