@@ -1,0 +1,172 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Feb, 2018, 6:31:05 PM
+    Author     : Suhas
+*/
+
+body{
+    background: #f4f4f4;
+}
+.navbar{
+    min-height: 33px !important;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.navbar-nav > li > a, .navbar-brand{
+    padding-top: 6px !important;
+    padding-bottom: 0 !important;
+    height: 33px;
+}
+
+/* Navbar */
+.navbar-default {
+    background-color: #332c6f;
+    border-color: #10195e;
+}
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #a79bd0;
+}
+.navbar-default .navbar-text {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #a79bd0;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+    background-color: #332c6f;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #a79bd0;
+    background-color: #10195e;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+    background-color: #10195e;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #a79bd0;
+    background-color: #10195e;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #a79bd0;
+    background-color: #10195e;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #a79bd0;
+    background-color: #10195e;
+}
+.navbar-default .navbar-toggle {
+    border-color: #10195e;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #10195e;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+    color: #a79bd0;
+}
+
+/* Custom */
+
+.main-color-bg{
+    background-color: #332c6f !important;
+    border-color: #10195e !important;
+    color: #ffffff !important;
+}
+
+/* Header */
+#header{
+    background: #333333;
+    color: #ffffff;
+    padding-top: 33px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#header .create{
+    padding-top: 25px;
+}
+
+/* Breadcrumb */
+.breadcrumb{
+    background: #ccccde;
+    color: #333333;
+}
+.breadcrumb a{
+    color: #333333;
+}
+
+/* Dash Box */
+.dash-box{
+    text-align: center;
+}
+
+/* Login Page */
+#login{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Well Background color */
+.well{
+    background-color: #ffffff !important;
+}
+
+/* Footer */
+#footer{
+    background: #333333;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+}
+
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #a79bd0;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #a79bd0;
+        background-color: #10195e;
+    }
+}

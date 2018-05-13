@@ -1,0 +1,153 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 Feb, 2018, 11:20:48 AM
+    Author     : Suhas
+*/
+
+body{
+    background: #eeeeee !important;
+}
+
+.navbar-default {
+    background-color: #1484c3;
+    border-color: #0b6ca3;
+}
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #85c9f0;
+}
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #85c9f0;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #85c9f0;
+    background-color: #0b6ca3;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #85c9f0;
+    background-color: #0b6ca3;
+}
+.navbar-default .navbar-toggle {
+    border-color: #0b6ca3;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #0b6ca3;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+    color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+    color: #85c9f0;
+}
+
+/* Border Color */
+.border{
+    border-color: #0b6ca3 !important;
+}
+
+/* Carousel */
+.slides{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Main Color */
+.main-color{
+    background-color: #1484c3 !important;
+    border-color: #0b6ca3 !important;
+    color: #ffffff !important;
+}
+
+/* Fonts */
+font{
+    font-family: verdana;
+    color: black;
+    font-size: 14pt;
+}
+
+/* Footer */
+.footer{
+    background-color: #cccccc;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+/* home-loan.jsp */
+.HL-Banner{
+    background-image: url("../images/HL-Banner.jpg");
+}
+
+/* personal-loan.jsp */
+.PL-Banner{
+    background-image: url("../images/PL-Banner.png");
+}
+
+/* vehicle-loan.jsp */
+.VL-Banner{
+    background-image: url("../images/VL-Banner.PNG");
+}
+
+/* business-loan.jsp */
+.BL-Banner{
+    background-image: url("../images/BL-Banner.jpg");
+}
+
+/* Well Background color */
+.well{
+    background-color: #ffffff !important;
+}
+
+/* fonts for loan informations */
+.loaninformation{
+    font: 200 medium sans-serif;
+}
+
+/* profile.jsp */
+.Banner{
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #85c9f0;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #85c9f0;
+        background-color: #0b6ca3;
+    }
+}
