@@ -17,6 +17,7 @@ public class Database {
 
     public static Connection con;
 
+    //This method returns the database connection
     public static Connection connect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

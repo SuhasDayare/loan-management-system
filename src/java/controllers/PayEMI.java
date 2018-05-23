@@ -40,10 +40,15 @@ public class PayEMI extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session Handling
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
+            response.setHeader("Pragma", "no-cache");   //HTTP 1.0
+            response.setHeader("Expires", "0"); //Proxies
+            
             HttpSession session = request.getSession();
             String emailid = "";
 
-            //from admin
+            //Check whether admin is collecting payment or not
             boolean admin = false;
             if (request.getParameter("admin") != null) {
                 admin = true;
@@ -51,6 +56,7 @@ public class PayEMI extends HttpServlet {
                 System.out.println(emailid);
             }
 
+            //Get form data
             String emidate = request.getParameter("emidate");
             String paymentdate = request.getParameter("paymentdate");
 
@@ -58,6 +64,7 @@ public class PayEMI extends HttpServlet {
             int latefine = Integer.parseInt(request.getParameter("latefine"));
             int totalpayment = Integer.parseInt(request.getParameter("totalpayment"));
 
+            //If customer is paying directly from bank account, get the related info
             int bankAccNo = 0;
             String password = "";
             if (request.getParameter("bankAccNo") != null) {
@@ -77,7 +84,10 @@ public class PayEMI extends HttpServlet {
             try {
                 con = Database.connect();
                 st = con.createStatement();
+                //Update the balance in bank account
                 int i = st.executeUpdate("update bank_details set balance= balance - " + totalpayment + " where acc_no=" + bankAccNo + " && password='" + password + "'");
+                
+                //if balance is updated or payment is made through admin then proceed
                 if (i > 0 || admin) {
                     st.execute("update customer_loan_details set amount_receive = amount_receive + " + totalpayment + " where c_emailid='" + emailid + "'");
 

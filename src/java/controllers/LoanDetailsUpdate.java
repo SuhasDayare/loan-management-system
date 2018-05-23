@@ -38,6 +38,7 @@ public class LoanDetailsUpdate extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session Handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
@@ -50,7 +51,9 @@ public class LoanDetailsUpdate extends HttpServlet {
                 con = Database.connect();
                 st = con.createStatement();
 
+                //Check which action the admin take
                 if (request.getParameter("action") != null) {
+                    //Code if admin delets the loan details
                     if (request.getParameter("action").equals("delete")) {
 
                         String loanID = request.getParameter("id");
@@ -58,7 +61,9 @@ public class LoanDetailsUpdate extends HttpServlet {
 
                         response.sendRedirect("admin/loanDetails.jsp");
                     }
-                } else {
+                } 
+                //Code if admin create the new loan details
+                else {
                     String loanName = request.getParameter("loanName");
                     int tenure = Integer.parseInt(request.getParameter("tenure"));
                     float rate = Float.parseFloat(request.getParameter("rate"));

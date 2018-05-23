@@ -41,10 +41,12 @@ public class ProcessLoan extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session Handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
 
+            //Get the form data
             float amount = Float.parseFloat(request.getParameter("amount"));
             int loan_id = Integer.parseInt(request.getParameter("loanId"));
 
@@ -65,6 +67,7 @@ public class ProcessLoan extends HttpServlet {
             PreparedStatement ps;
             Statement st;
 
+            //Store the loan application data to database
             try {
                 con = Database.connect();
                 /*
@@ -85,6 +88,7 @@ public class ProcessLoan extends HttpServlet {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
+            
             response.sendRedirect("loanApplication.jsp");
         }
     }

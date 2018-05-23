@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,16 +41,16 @@ public class Register extends HttpServlet {
 
             String error = "";
 
+            //Session Handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
 
+            //Collecting form data
             String name = request.getParameter("name").trim();
             String emailId = request.getParameter("email").trim();
             String gender = request.getParameter("gender");
-
-            String dob = request.getParameter("dob");
-
+            Date dob = Date.valueOf(request.getParameter("dob"));
             String mobileno = request.getParameter("mobile").trim();
             String adharno = request.getParameter("adhar").trim();
             String panno = request.getParameter("pan").trim();
@@ -57,6 +58,7 @@ public class Register extends HttpServlet {
             String password = request.getParameter("pass").trim();
             String password1 = request.getParameter("pass1").trim();
 
+            //Validating data
             boolean flag = true;
             if (name == null || emailId == null || dob == null || address == null || password == null) {
                 flag = false;
@@ -75,6 +77,7 @@ public class Register extends HttpServlet {
                 error = "Passwords are different!!! Make sure you type same password in both password fields.";
             }
 
+            //If flag is true then proceed to insert data into database
             if (flag) {
                 Connection con;
                 con = Database.connect();
@@ -90,10 +93,11 @@ public class Register extends HttpServlet {
                     ps.setString(6, panno);
                     ps.setString(7, adharno);
                     ps.setString(8, gender);
-                    ps.setString(9, dob);
+                    ps.setDate(9, dob);
 
                     boolean rs = ps.execute();
 
+                    //If data is stored in database successfully then set a session and redirect user to index.jsp page else redirect user to registeration page.
                     if (!rs) {
                         HttpSession session = request.getSession();
                         session.setAttribute("username", emailId);
@@ -107,7 +111,9 @@ public class Register extends HttpServlet {
                     System.out.println(e.getMessage());
                     response.sendRedirect("./register.jsp?error=Ooops, Something went wrong. Please try again.");
                 }
-            } else {
+            } 
+            //If flag is false the redirect user to register.jsp page with error.
+            else {
                 System.out.println("flag............................flag");
                 response.sendRedirect("./register.jsp?error=" + error);
             }

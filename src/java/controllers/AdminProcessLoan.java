@@ -40,6 +40,7 @@ public class AdminProcessLoan extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
@@ -49,6 +50,7 @@ public class AdminProcessLoan extends HttpServlet {
             ResultSet rs;
             PreparedStatement ps;
 
+            //Get form data
             String emailId = request.getParameter("emailid");
             String action = request.getParameter("action");
 
@@ -56,9 +58,12 @@ public class AdminProcessLoan extends HttpServlet {
                 con = Database.connect();
                 st = con.createStatement();
 
+                //If admin rejects the loan application make status as 2 in loan_application table
                 if (action.equals("reject")) {
                     st.executeUpdate("update loan_application set status=2 where c_emailid='" + emailId + "' && status=0");
-                } else if (action.equals("approve")) {
+                } 
+                //Code if admin approves the loan application
+                else if (action.equals("approve")) {
                     st.executeUpdate("update loan_application set status=1 where c_emailid='" + emailId + "' && status=0");
                     rs = st.executeQuery("select * from loan_application where c_emailid='" + emailId + "' && status=1");
                     rs.next();

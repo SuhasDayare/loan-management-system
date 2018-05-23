@@ -38,6 +38,7 @@ public class UpdateProfile extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session Handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
@@ -51,13 +52,14 @@ public class UpdateProfile extends HttpServlet {
                 con = Database.connect();
                 st = con.createStatement();
 
+                //Checks who is updating profle using session, admin or customer,
                 if (session.getAttribute("adminname") != null) {
 
                     String email_id = session.getAttribute("adminname").toString();
                     String password = request.getParameter("password");
                     st.executeUpdate("update admin_details set password='" + password + "' where email_id='" + email_id + "'");
                     response.sendRedirect("./admin/profile.jsp");
-
+                    
                 } else {
                     String email_id = session.getAttribute("username").toString();
                     String password = request.getParameter("password");

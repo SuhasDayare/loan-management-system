@@ -39,6 +39,7 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Session handling
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("Pragma", "no-cache");   //HTTP 1.0
             response.setHeader("Expires", "0"); //Proxies
@@ -48,9 +49,11 @@ public class LoginController extends HttpServlet {
 
             con = Database.connect();
 
+            //Get form data
             String emailid = request.getParameter("id");
             String password = request.getParameter("password");
 
+            //Check who is login, admin or customer and redirect them as appropriate
             if (request.getParameter("admin") != null) {
                 try {
                     st = con.createStatement();
