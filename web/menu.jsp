@@ -3,30 +3,76 @@
     Created on : 16 Feb, 2018, 11:02:56 PM
     Author     : Suhas
 --%>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
+    response.setHeader("Pragma", "no-cache");   //HTTP 1.0
+    response.setHeader("Expires", "0"); //Proxies
+%>
+
+<%
+    String filename = this.getClass().getSimpleName().replaceAll("_", ".");
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html>  
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title><% if (filename.equals("about.002dus.jsp")) {
+                out.print("Norton Finance | About Us");
+            } else if (filename.equals("business.002dloan.jsp")) {
+                out.print("Norton Finance | Business Loan");
+            } else if (filename.equals("contact.002dus.jsp")) {
+                out.print("Norton Finance | Contact Us");
+            } else if (filename.equals("customerLoanDetails.jsp")) {
+                out.print("Norton Finance | Loan Details");
+            } else if (filename.equals("emiDetails.jsp")) {
+                out.print("Norton Finance | EMI Details");
+            } else if (filename.equals("home.002dloan.jsp")) {
+                out.print("Norton Finance | Home Loan");
+            } else if (filename.equals("index.jsp")) {
+                out.print("Norton Finance");
+            } else if (filename.equals("loanApplication.jsp")) {
+                out.print("Norton Finance | Loan Application");
+            } else if (filename.equals("login.jsp")) {
+                out.print("Norton Finance | Login");
+            } else if (filename.equals("personal.002dloan.jsp")) {
+                out.print("Norton Finance | Personal Loan");
+            } else if (filename.equals("profile.jsp")) {
+                out.print("Norton Finance | Profile");
+            } else if (filename.equals("register.jsp")) {
+                out.print("Norton Finance | Register");
+            } else if (filename.equals("vehicle.002dloan.jsp")) {
+                out.print("Norton Finance | Vehicle Loan");
+            }
+            {
+                out.print("Norton Finance");
+            }
+            %></title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/main-css.css" type="text/css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <%
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
-            response.setHeader("Pragma", "no-cache");   //HTTP 1.0
-            response.setHeader("Expires", "0"); //Proxies
-        %>
 
-        <%
-            String filename = this.getClass().getSimpleName().replaceAll("_", ".");
-        %>
         <!--Top Menu Bar -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Logo -->
                 <div class="navbar-header">
                     <a href="index.jsp">
-                        <img alt="Brand" class="navbar-brand img-circle" src="images/norton_finance_logo.jpg">
+                        <img alt="Norton Finance" class="navbar-brand img-circle" src="images/norton_finance_logo.jpg">
                     </a>
                     <a class="navbar-brand" href="index.jsp">Norton Finance</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -82,5 +128,3 @@
                 </div>
             </div>
         </nav><br><br>
-    </body>
-</html>

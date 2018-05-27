@@ -36,7 +36,7 @@
     <body>
         <!--Top Menu Bar --><%@include file="menu.jsp" %>
         <br><br>
-        
+
         <div class="container">
             <%  if (request.getParameter("error") != null) {
                     String error = request.getParameter("error");
@@ -47,7 +47,7 @@
             <%  }
             %>
         </div>
-        
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <form class="form login-form" role="form" action="LoginController" method="POST">
@@ -80,10 +80,3 @@
 
         <!-- Footer -->
         <%@include file="footer.html" %>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-    </body>
-</html>

@@ -4,137 +4,108 @@
     Author     : Suhas
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>  
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Norton Finance | Register</title>
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/main-css.css" type="text/css">
+<!--Top Menu Bar --><%@include file="menu.jsp" %>
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <!--Top Menu Bar --><%@include file="menu.jsp" %>
-
-        <div class="container">
-            <%  if (request.getParameter("error") != null) {
-                    String error = request.getParameter("error");
-            %>
-            <br><br>
-            <div class="alert alert-danger fade in col-md-8 col-md-offset-2">
-                <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a><span class="glyphicon glyphicon-alert"></span>&nbsp;&nbsp;&nbsp;<%= error%>
+<div class="container">
+    <%  if (request.getParameter("error") != null) {
+            String error = request.getParameter("error");
+    %>
+    <br><br>
+    <div class="alert alert-danger fade in col-md-8 col-md-offset-2">
+        <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a><span class="glyphicon glyphicon-alert"></span>&nbsp;&nbsp;&nbsp;<%= error%>
+    </div>
+    <%  }
+    %>
+</div>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form class="form login-form" role="form" action="Register" method="POST">
+            <!-- header -->
+            <div class="modal-header">
+                <a class="close" href="login.jsp"><small>Or</small>&nbsp;Login</a>
+                <h3 class="modal-title">Register</h3>
             </div>
-            <%  }
-            %>
-        </div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form class="form login-form" role="form" action="Register" method="POST">
-                    <!-- header -->
-                    <div class="modal-header">
-                        <a class="close" href="login.jsp"><small>Or</small>&nbsp;Login</a>
-                        <h3 class="modal-title">Register</h3>
-                    </div>
-                    <!-- body (form) -->
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Name:</label>
-                                    <input type="text" class="form-control" placeholder="Name..." name="name" required="required" maxlength="50">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label>Email:</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Enter email..." required="required" maxlength="25">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <p><b>Gender:</b></p>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="gender" id="inlineRadio1" value="male" checked="checked"> Male
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="gender" id="inlineRadio2" value="female"> Female
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>DOB:</label>
-                                    <input type="text" class="form-control" placeholder="Enter date in format yyyy-mm-dd" name="dob" required="required">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Mobile no.:</label>
-                                    <input type="number" class="form-control" name="mobile" placeholder="Enter mobile no..." required="required" max="9999999999">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Adhar No.:</label>
-                                    <input type="number" class="form-control" name="adhar" placeholder="Enter adhar no..." required="required" maxlength="12">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>PAN No.:</label>
-                                    <input type="text" class="form-control" name="pan" placeholder="Enter PAN No..." required="required" maxlength="10">
-                                </div>
-                            </div>
-                        </div>
+            <!-- body (form) -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label>Address:</label>
-                            <textarea class="form-control" name="address" placeholder="Enter address..." required="required" maxlength="120"></textarea>
+                            <label>Name:</label>
+                            <input type="text" class="form-control" placeholder="Name..." name="name" required="required" maxlength="50">
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
                         <div class="form-group">
-                            <label>Password</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="pass" placeholder="Enter password..." required="required" maxlength="10">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="pass1" placeholder="Re-enter password..." required="required" maxlength="10">
-                                </div>
-                            </div>
+                            <label>Email:</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email..." required="required" maxlength="25">
                         </div>
                     </div>
-                    <!-- button -->
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-primary">Reset</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <p><b>Gender:</b></p>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="inlineRadio1" value="male" checked="checked"> Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="inlineRadio2" value="female"> Female
+                            </label>
+                        </div>
                     </div>
-                </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>DOB:</label>
+                            <input type="text" class="form-control" placeholder="Enter date in format yyyy-mm-dd" name="dob" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mobile no.:</label>
+                            <input type="number" class="form-control" name="mobile" placeholder="Enter mobile no..." required="required" max="9999999999">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Adhar No.:</label>
+                            <input type="number" class="form-control" name="adhar" placeholder="Enter adhar no..." required="required" maxlength="12">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>PAN No.:</label>
+                            <input type="text" class="form-control" name="pan" placeholder="Enter PAN No..." required="required" maxlength="10">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <textarea class="form-control" name="address" placeholder="Enter address..." required="required" maxlength="120"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" name="pass" placeholder="Enter password..." required="required" maxlength="10">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" name="pass1" placeholder="Re-enter password..." required="required" maxlength="10">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <!-- button -->
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-        <!-- Footer -->
-        <%@include file="footer.html" %>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-    </body>
-</html>
+<!-- Footer -->
+<%@include file="footer.html" %>
