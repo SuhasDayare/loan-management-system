@@ -21,6 +21,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <!-- Titles are displayed dynamically depending on file name. -->
         <title><% if (filename.equals("about.002dus.jsp")) {
                 out.print("Norton Finance | About Us");
             } else if (filename.equals("business.002dloan.jsp")) {
